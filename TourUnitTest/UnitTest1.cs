@@ -11,7 +11,6 @@ namespace TourUnitTest
         public void AddButton()
         {
             TourBusiness TourTest = new();
-            var result = TourTest.GetList();
             Tour test = new()
             {
                 Direction = Direction.Turkey,
@@ -22,14 +21,14 @@ namespace TourUnitTest
                 WiFi = true,
                 Surcharges = 450.32m,
             };
-            TourTest.Add(test);
+            TourTest.Add(test); 
+            var result = TourTest.GetList();
             Assert.Equal(test, result[0]);
         }
         [Fact]
         public void EditButton()
         {
             TourBusiness TourTest = new();
-            var result = TourTest.GetList();
             Tour test = new()
             {
                 Direction = Direction.Turkey,
@@ -51,14 +50,14 @@ namespace TourUnitTest
                 WiFi = true,
                 Surcharges = 1425.64m,
             };
-            TourTest.Edit(test, test2);
+            TourTest.Edit(test, test2);            
+            var result = TourTest.GetList();
             Assert.Equal(test2, result[0]);
         }
         [Fact]
         public void DeleteButton()
         {
             TourBusiness TourTest = new();
-            var result = TourTest.GetList();
             Tour test = new()
             {
                 Direction = Direction.Turkey,
@@ -70,7 +69,8 @@ namespace TourUnitTest
                 Surcharges = 450.32m,
             };
             TourTest.Add(test);
-            TourTest.Delete(test);
+            TourTest.Delete(test);            
+            var result = TourTest.GetList();
             Assert.Empty(result);
         }
     }
